@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1,shrink-to-fit=no"
     />
 
-    <title>CORONA SPREADING MAP IN CAMEROON</title>
+    <title>CORONA MAP CAMEROON</title>
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/leaflet.css" />
     <link rel="stylesheet" href="src/css/bootstrap-grid.min.css" />
@@ -36,12 +36,12 @@
     <!-- Navigation bar top(titlte)+ images-->
     <img
       id="navimg1"
-      src="/Working/Carte des repartition des cas/corona/img/corona.png"
+      src="img/corona.png"
       alt=""
     />
     <img
       id="navimg2"
-      src="/Working/Carte des repartition des cas/corona/img/corona.png"
+      src="img/corona.png"
       alt=""
     />
     <nav class="navbar" id="navbartop">
@@ -50,21 +50,39 @@
           Répartition des Cas de COVID-19
         </h3></a
       >
+      <div class="custom-menu">
+        <button
+          data-target="#right-info"
+          data-toggle="collapse"
+          type="button"
+          id="sidebarCollapse"
+          class="btn "
+        >
+          <i id="toggleIcon" class="fa fa-angle-double-down"></i> Plus
+          d'actualite
+          <i
+            class="fa fa-
+
+        filter"
+          ></i>
+        </button>
+      </div>
     </nav>
 
     <!-- <div id="sidebar" class="col-sm-2"> </div> -->
     <div class="container-fluid">
       <div class="row">
-        <nav id="sidebarRight" class="col-sm-3 d-none d-sm-block bg-light">
-          <div class="row sidebar-header ">
+        <nav id="sidebarRight" class="col-sm-3 d-f d-sm-block bg-light">
+          <div class="row sidebar-header d-flex p-2 justify-content-center">
             <div class="division  col-sm-4 threeboxes">
-              <div class="row tot-fig">
-                <div id="case" class="case col-sm-12 casetot">
+              <div
+                class="row tot-fig d-flex flex-column justify-content-center"
+              >
+                <div id="case" class="case casetot">
                   00
                 </div>
-                <div class="col-sm-12">
-                  <h6>Cas</h6>
-                </div>
+
+                <h6 class="tot-tagline">Cas</h6>
               </div>
             </div>
 
@@ -73,9 +91,8 @@
                 <div id="victim" class="victim col-sm-12 victimtot">
                   00
                 </div>
-                <div class="col-sm-12">
-                  <h6>Victimes</h6>
-                </div>
+
+                <h6 class="tot-tagline">Victimes</h6>
               </div>
             </div>
             <div class="division  col-sm-4 threeboxes">
@@ -83,11 +100,9 @@
                 <div id="recover" class="recover col-sm-12 recovertot">
                   00
                 </div>
-                <div class="col-sm-12">
-                  <h6>
-                    Rétablis
-                  </h6>
-                </div>
+                <h6 class="tot-tagline">
+                  Rétablis
+                </h6>
               </div>
             </div>
           </div>
@@ -105,7 +120,10 @@
                 <div id="table_centre" class="card-body">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Chargement des départements affectés ...</a>
+                      <a class="nav-link" href="#"
+                        >Chargement des départements affectés ...</a
+                      >
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -124,7 +142,9 @@
                 <div id="table_littoral" class="card-body">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Chargement des départements affectés ...</a>
+                      <a class="nav-link" href="#"
+                        >Chargement des départements affectés ...</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -149,9 +169,32 @@
           </div>
         </nav>
 
-        <div id="mapdiv" class="col-sm-9 "></div>
+        <div
+          id="map-sidebar"
+          class=" wrapper col-sm-9 d-flex justify-content-center "
+        >
+          <!-- Map here -->
+
+          <nav id="right-info" class="order-last">
+            <div class="sidebar-sticky">
+              <h3>RUBRIQUE ACTUALITE</h3>
+              <p>
+                Les autorités camerounaises ont réceptionné 30 tonnes de
+                matériels ce 26 mars 2020 à l’aéroport international de Yaoundé
+                Nsimalen. De l’oxygène pour la stratégie de riposte du Cameroun
+                contre le Covid-19. Un apport de l’homme d’affaires chinois Jack
+                Ma, , fondateur du Groupe de vente en ligne Alibaba. A (...)
+              </p>
+            </div>
+          </nav>
+
+          <div id="mapdiv" class=""></div>
+
+          <!-- Aside for infos -->
+        </div>
       </div>
     </div>
+
     <div class="footer d-flex justify-content-center">
       copy right - Mars 2020
     </div>
@@ -197,20 +240,25 @@
         fillOpacity: 0
       };
 
-    var Styleregion = {
-                "color": "#845500",
-                "weight":3,
-                "fillOpacity": 0.1,
-                "fillColor": "#845500"
-        };
-        
-    var Styleregion_case = {
-                "color": "red",
-                "weight":3,
-                "fillOpacity": 0.1,
-                "fillColor": "red"
-        };
-        
+      var Styleregion = {
+        color: "#845500",
+        weight: 3,
+        fillOpacity: 0.1,
+        fillColor: "#845500"
+      };
+
+      var Styleregion_case = {
+        color: "red",
+        weight: 3,
+        fillOpacity: 0.1,
+        fillColor: "red"
+      };
+
+      //Right side bar to show side menu
+      $("#toggleIcon").toggleClass(
+        "fa fa-angle-double-down fa fa-angle-double-up"
+      );
+
       $(document).ready(function() {
         //non cartographique
         //Mise à jour données régions
@@ -256,61 +304,56 @@
           console.log(datas);
         });
 
-    //Mise à jour tableau données departement
-      function table_centre(){
-                    $.ajax({
-                       url:'table_centre.php',
-                       type:'POST',
-                       success:function(response){
-                          $("#table_centre").html(response)  
-                           
-                         }
-                   });
-                }; 
-            
-            table_centre();
-            
-         function table_littoral(){
-                    $.ajax({
-                       url:'table_littoral.php',
-                       type:'POST',
-                       success:function(response){
-                          $("#table_littoral").html(response)  
-                           
-                         }
-                   });
-                }; 
-            
-            table_littoral();
-            
-             function table_ouest(){
-                    $.ajax({
-                       url:'table_ouest.php',
-                       type:'POST',
-                       success:function(response){
-                          $("#table_ouest").html(response)  
-                           
-                         }
-                   });
-                }; 
-       
-           table_ouest();
-          
-          
+        //Mise à jour tableau données departement
+        function table_centre() {
+          $.ajax({
+            url: "table_centre.php",
+            type: "POST",
+            success: function(response) {
+              $("#table_centre").html(response);
+            }
+          });
+        }
+
+        table_centre();
+
+        function table_littoral() {
+          $.ajax({
+            url: "table_littoral.php",
+            type: "POST",
+            success: function(response) {
+              $("#table_littoral").html(response);
+            }
+          });
+        }
+
+        table_littoral();
+
+        function table_ouest() {
+          $.ajax({
+            url: "table_ouest.php",
+            type: "POST",
+            success: function(response) {
+              $("#table_ouest").html(response);
+            }
+          });
+        }
+
+        table_ouest();
+
         //cartographique
         southWest_bnd = L.latLng(1, 17);
         northEast_bnd = L.latLng(16, 8);
         bounds = L.latLngBounds(southWest_bnd, northEast_bnd);
 
-          mymap = L.map('mapdiv',{
-              center:[5.659719, 13.066939], 
-              zoom:6,
-              maxZoom:19,
-              minZoom:5,
-              maxBounds: bounds
-          });
-          
-            
+        mymap = L.map("mapdiv", {
+          center: [5.659719, 13.066939],
+          zoom: 6,
+          maxZoom: 19,
+          minZoom: 5,
+          maxBounds: bounds
+        });
+
         lyrOSM = L.tileLayer.provider("OpenStreetMap.Mapnik");
         lyrImageryEsri = L.tileLayer.provider("Esri.WorldImagery");
         lyrOSM2 = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png");
@@ -536,56 +579,71 @@
           });
         }
 
-//        function refreshquartier() {
-//          $.ajax({
-//            url: "load_quartier.php",
-//            type: "POST",
-//            success: function(response) {
-//              if (lyrquartier) {
-//                mymap.removeLayer(lyrquartier);
-//              }
-//              lyrquartier = L.geoJSON(JSON.parse(response), {
-//                style: Stylequartier
-//              });
-//              lyrquartier.addTo(mymap);
-//            }
-//          });
-//        }
+        //        function refreshquartier() {
+        //          $.ajax({
+        //            url: "load_quartier.php",
+        //            type: "POST",
+        //            success: function(response) {
+        //              if (lyrquartier) {
+        //                mymap.removeLayer(lyrquartier);
+        //              }
+        //              lyrquartier = L.geoJSON(JSON.parse(response), {
+        //                style: Stylequartier
+        //              });
+        //              lyrquartier.addTo(mymap);
+        //            }
+        //          });
+        //        }
 
-      function refreshregion(){
-            $.ajax({
-           url:'load_region.php',
-           type:'POST',
-           success:function(response){
-            if (lyrregion) {mymap.removeLayer(lyrregion)};
-               lyrregion=L.geoJSON(JSON.parse(response),{
-            style:  function(feature,layer){
-                if (feature.properties.nombre_total_de_cas>=1){
-                            return Styleregion_case;
-                        } else {
-                            return (Styleregion);
-                        }
-                    },
-                onEachFeature: function (feature,layer){
+        function refreshregion() {
+          $.ajax({
+            url: "load_region.php",
+            type: "POST",
+            success: function(response) {
+              if (lyrregion) {
+                mymap.removeLayer(lyrregion);
+              }
+              lyrregion = L.geoJSON(JSON.parse(response), {
+                style: function(feature, layer) {
+                  if (feature.properties.nombre_total_de_cas >= 1) {
+                    return Styleregion_case;
+                  } else {
+                    return Styleregion;
+                  }
+                },
+                onEachFeature: function(feature, layer) {
+                  var strbuildingInfo =
+                    "<h4 style='color: brown;text-align:center;text-decoration: underline;font-weight:bold'>INFORMATIONS</h4>";
+                  strbuildingInfo +=
+                    "<h4> <span style='font-weight:bold'>Nom :</span> <span style='color:blue'>" +
+                    feature.properties.name +
+                    " </span> </h4> </br>";
+                  strbuildingInfo +=
+                    "<h4> <span style='font-weight:bold'>Population estimée (2020) :</span> <span style='color:blue'>" +
+                    feature.properties.pop_estim_2020 +
+                    " </span> </h4> </br>";
+                  strbuildingInfo +=
+                    "<h4> <span style='font-weight:bold'>Nombre de cas:</span> <span style='color:blue'>" +
+                    feature.properties.nombre_total_de_cas +
+                    " </span> </h4> </br>";
+                  strbuildingInfo +=
+                    "<h4> <span style='font-weight:bold'>Nombre de victimes:</span> <span style='color:red'>" +
+                    feature.properties.nombre_de_victimes +
+                    " </span> </h4> </br>";
+                  strbuildingInfo +=
+                    "<h4> <span style='font-weight:bold'>Personnes rétablies:</span> <span style='color:green'>" +
+                    feature.properties.nombre_de_personnes_retablies +
+                    " </span> </h4> ";
 
-                var strbuildingInfo = "<h4 style='color: brown;text-align:center;text-decoration: underline;font-weight:bold'>INFORMATIONS</h4>"
-                strbuildingInfo += "<h4> <span style='font-weight:bold'>Nom :</span> <span style='color:blue'>"+feature.properties.name+" </span> </h4> </br>"
-                strbuildingInfo += "<h4> <span style='font-weight:bold'>Population estimée (2020) :</span> <span style='color:blue'>"+feature.properties.pop_estim_2020+" </span> </h4> </br>"
-                strbuildingInfo += "<h4> <span style='font-weight:bold'>Nombre de cas:</span> <span style='color:blue'>"+feature.properties.nombre_total_de_cas+" </span> </h4> </br>"
-                strbuildingInfo += "<h4> <span style='font-weight:bold'>Nombre de victimes:</span> <span style='color:red'>"+feature.properties.nombre_de_victimes+" </span> </h4> </br>"
-                strbuildingInfo += "<h4> <span style='font-weight:bold'>Personnes rétablies:</span> <span style='color:green'>"+feature.properties.nombre_de_personnes_retablies+" </span> </h4> "
-              
-                layer.bindPopup(String(strbuildingInfo));
-
-              } 
-          })
-                lyrregion.addTo(mymap);
-
-           }});
-
-       }
+                  layer.bindPopup(String(strbuildingInfo));
+                }
+              });
+              lyrregion.addTo(mymap);
+            }
+          });
+        }
         refreshclinique();
-//        refreshquartier();
+        //        refreshquartier();
         refreshregion();
         refreshhotel();
         refreshpharmacie();
