@@ -50,23 +50,21 @@
           Répartition des Cas de COVID-19
         </h3></a
       >
-      </div>
     </nav>
 
     <!-- <div id="sidebar" class="col-sm-2"> </div> -->
     <div class="container-fluid">
       <div class="row">
-        <nav id="sidebarRight" class="col-sm-3 d-f d-sm-block bg-light">
-          <div class="row sidebar-header d-flex p-2 justify-content-center">
+        <nav id="sidebarRight" class="col-sm-3 d-none d-sm-block bg-light">
+          <div class="row sidebar-header ">
             <div class="division  col-sm-4 threeboxes">
-              <div
-                class="row tot-fig d-flex flex-column justify-content-center"
-              >
-                <div id="case" class="case casetot">
+              <div class="row tot-fig">
+                <div id="case" class="case col-sm-12 casetot">
                   00
                 </div>
-
-                <h6 class="tot-tagline">Cas</h6>
+                <div class="col-sm-12">
+                  <h6>Cas</h6>
+                </div>
               </div>
             </div>
 
@@ -75,8 +73,9 @@
                 <div id="victim" class="victim col-sm-12 victimtot">
                   00
                 </div>
-
-                <h6 class="tot-tagline">Victimes</h6>
+                <div class="col-sm-12">
+                  <h6>Victimes</h6>
+                </div>
               </div>
             </div>
             <div class="division  col-sm-4 threeboxes">
@@ -84,9 +83,11 @@
                 <div id="recover" class="recover col-sm-12 recovertot">
                   00
                 </div>
-                <h6 class="tot-tagline">
-                  Rétablis
-                </h6>
+                <div class="col-sm-12">
+                  <h6>
+                    Rétablis
+                  </h6>
+                </div>
               </div>
             </div>
           </div>
@@ -104,10 +105,7 @@
                 <div id="table_centre" class="card-body">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="#"
-                        >Chargement des départements affectés ...</a
-                      >
-                    </li>
+                      <a class="nav-link" href="#">Chargement des départements affectés ...</a>
                   </ul>
                 </div>
               </div>
@@ -126,9 +124,7 @@
                 <div id="table_littoral" class="card-body">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="#"
-                        >Chargement des départements affectés ...</a
-                      >
+                      <a class="nav-link" href="#">Chargement des départements affectés ...</a>
                     </li>
                   </ul>
                 </div>
@@ -153,18 +149,9 @@
           </div>
         </nav>
 
-        <div
-          id="map-sidebar"
-          class=" wrapper col-sm-9 d-flex justify-content-center "
-        >
-          <!-- Map here -->
-          <div id="mapdiv" class=""></div>
-
-          <!-- Aside for infos -->
-        </div>
+        <div id="mapdiv" class="col-sm-9 "></div>
       </div>
     </div>
-
     <div class="footer d-flex justify-content-center">
       copy right - Mars 2020
     </div>
@@ -210,25 +197,20 @@
         fillOpacity: 0
       };
 
-      var Styleregion = {
-        color: "#845500",
-        weight: 3,
-        fillOpacity: 0.1,
-        fillColor: "#845500"
-      };
-
-      var Styleregion_case = {
-        color: "red",
-        weight: 3,
-        fillOpacity: 0.1,
-        fillColor: "red"
-      };
-
-      //Right side bar to show side menu
-      $("#toggleIcon").toggleClass(
-        "fa fa-angle-double-down fa fa-angle-double-up"
-      );
-
+    var Styleregion = {
+                "color": "#845500",
+                "weight":3,
+                "fillOpacity": 0.1,
+                "fillColor": "#845500"
+        };
+        
+    var Styleregion_case = {
+                "color": "red",
+                "weight":3,
+                "fillOpacity": 0.1,
+                "fillColor": "red"
+        };
+        
       $(document).ready(function() {
         //non cartographique
         //Mise à jour données régions
@@ -274,56 +256,61 @@
           console.log(datas);
         });
 
-        //Mise à jour tableau données departement
-        function table_centre() {
-          $.ajax({
-            url: "table_centre.php",
-            type: "POST",
-            success: function(response) {
-              $("#table_centre").html(response);
-            }
-          });
-        }
-
-        table_centre();
-
-        function table_littoral() {
-          $.ajax({
-            url: "table_littoral.php",
-            type: "POST",
-            success: function(response) {
-              $("#table_littoral").html(response);
-            }
-          });
-        }
-
-        table_littoral();
-
-        function table_ouest() {
-          $.ajax({
-            url: "table_ouest.php",
-            type: "POST",
-            success: function(response) {
-              $("#table_ouest").html(response);
-            }
-          });
-        }
-
-        table_ouest();
-
+    //Mise à jour tableau données departement
+      function table_centre(){
+                    $.ajax({
+                       url:'table_centre.php',
+                       type:'POST',
+                       success:function(response){
+                          $("#table_centre").html(response)  
+                           
+                         }
+                   });
+                }; 
+            
+            table_centre();
+            
+         function table_littoral(){
+                    $.ajax({
+                       url:'table_littoral.php',
+                       type:'POST',
+                       success:function(response){
+                          $("#table_littoral").html(response)  
+                           
+                         }
+                   });
+                }; 
+            
+            table_littoral();
+            
+             function table_ouest(){
+                    $.ajax({
+                       url:'table_ouest.php',
+                       type:'POST',
+                       success:function(response){
+                          $("#table_ouest").html(response)  
+                           
+                         }
+                   });
+                }; 
+       
+           table_ouest();
+          
+          
         //cartographique
         southWest_bnd = L.latLng(1, 17);
         northEast_bnd = L.latLng(16, 8);
         bounds = L.latLngBounds(southWest_bnd, northEast_bnd);
 
-        mymap = L.map("mapdiv", {
-          center: [5.659719, 13.066939],
-          zoom: 6,
-          maxZoom: 19,
-          minZoom: 5,
-          maxBounds: bounds
-        });
-
+          mymap = L.map('mapdiv',{
+              center:[5.659719, 13.066939], 
+              zoom:6,
+              maxZoom:19,
+              minZoom:5,
+              maxBounds: bounds
+          });
+          
+            
         lyrOSM = L.tileLayer.provider("OpenStreetMap.Mapnik");
         lyrImageryEsri = L.tileLayer.provider("Esri.WorldImagery");
         lyrOSM2 = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png");
@@ -551,71 +538,56 @@
           });
         }
 
-        //        function refreshquartier() {
-        //          $.ajax({
-        //            url: "load_quartier.php",
-        //            type: "POST",
-        //            success: function(response) {
-        //              if (lyrquartier) {
-        //                mymap.removeLayer(lyrquartier);
-        //              }
-        //              lyrquartier = L.geoJSON(JSON.parse(response), {
-        //                style: Stylequartier
-        //              });
-        //              lyrquartier.addTo(mymap);
-        //            }
-        //          });
-        //        }
+//        function refreshquartier() {
+//          $.ajax({
+//            url: "load_quartier.php",
+//            type: "POST",
+//            success: function(response) {
+//              if (lyrquartier) {
+//                mymap.removeLayer(lyrquartier);
+//              }
+//              lyrquartier = L.geoJSON(JSON.parse(response), {
+//                style: Stylequartier
+//              });
+//              lyrquartier.addTo(mymap);
+//            }
+//          });
+//        }
 
-        function refreshregion() {
-          $.ajax({
-            url: "load_region.php",
-            type: "POST",
-            success: function(response) {
-              if (lyrregion) {
-                mymap.removeLayer(lyrregion);
-              }
-              lyrregion = L.geoJSON(JSON.parse(response), {
-                style: function(feature, layer) {
-                  if (feature.properties.nombre_total_de_cas >= 1) {
-                    return Styleregion_case;
-                  } else {
-                    return Styleregion;
-                  }
-                },
-                onEachFeature: function(feature, layer) {
-                  var strbuildingInfo =
-                    "<h4 style='color: brown;text-align:center;text-decoration: underline;font-weight:bold'>INFORMATIONS</h4>";
-                  strbuildingInfo +=
-                    "<h4> <span style='font-weight:bold'>Nom :</span> <span style='color:blue'>" +
-                    feature.properties.name +
-                    " </span> </h4> </br>";
-                  strbuildingInfo +=
-                    "<h4> <span style='font-weight:bold'>Population estimée (2020) :</span> <span style='color:blue'>" +
-                    feature.properties.pop_estim_2020 +
-                    " </span> </h4> </br>";
-                  strbuildingInfo +=
-                    "<h4> <span style='font-weight:bold'>Nombre de cas:</span> <span style='color:blue'>" +
-                    feature.properties.nombre_total_de_cas +
-                    " </span> </h4> </br>";
-                  strbuildingInfo +=
-                    "<h4> <span style='font-weight:bold'>Nombre de victimes:</span> <span style='color:red'>" +
-                    feature.properties.nombre_de_victimes +
-                    " </span> </h4> </br>";
-                  strbuildingInfo +=
-                    "<h4> <span style='font-weight:bold'>Personnes rétablies:</span> <span style='color:green'>" +
-                    feature.properties.nombre_de_personnes_retablies +
-                    " </span> </h4> ";
+      function refreshregion(){
+            $.ajax({
+           url:'load_region.php',
+           type:'POST',
+           success:function(response){
+            if (lyrregion) {mymap.removeLayer(lyrregion)};
+               lyrregion=L.geoJSON(JSON.parse(response),{
+            style:  function(feature,layer){
+                if (feature.properties.nombre_total_de_cas>=1){
+                            return Styleregion_case;
+                        } else {
+                            return (Styleregion);
+                        }
+                    },
+                onEachFeature: function (feature,layer){
 
-                  layer.bindPopup(String(strbuildingInfo));
-                }
-              });
-              lyrregion.addTo(mymap);
-            }
-          });
-        }
+                var strbuildingInfo = "<h4 style='color: brown;text-align:center;text-decoration: underline;font-weight:bold'>INFORMATIONS</h4>"
+                strbuildingInfo += "<h4> <span style='font-weight:bold'>Nom :</span> <span style='color:blue'>"+feature.properties.name+" </span> </h4> </br>"
+                strbuildingInfo += "<h4> <span style='font-weight:bold'>Population estimée (2020) :</span> <span style='color:blue'>"+feature.properties.pop_estim_2020+" </span> </h4> </br>"
+                strbuildingInfo += "<h4> <span style='font-weight:bold'>Nombre de cas:</span> <span style='color:blue'>"+feature.properties.nombre_total_de_cas+" </span> </h4> </br>"
+                strbuildingInfo += "<h4> <span style='font-weight:bold'>Nombre de victimes:</span> <span style='color:red'>"+feature.properties.nombre_de_victimes+" </span> </h4> </br>"
+                strbuildingInfo += "<h4> <span style='font-weight:bold'>Personnes rétablies:</span> <span style='color:green'>"+feature.properties.nombre_de_personnes_retablies+" </span> </h4> "
+              
+                layer.bindPopup(String(strbuildingInfo));
+
+              } 
+          })
+                lyrregion.addTo(mymap);
+
+           }});
+
+       }
         refreshclinique();
-        //        refreshquartier();
+//        refreshquartier();
         refreshregion();
         refreshhotel();
         refreshpharmacie();
