@@ -50,22 +50,6 @@
           Répartition des Cas de COVID-19
         </h3></a
       >
-      <div class="custom-menu">
-        <button
-          data-target="#right-info"
-          data-toggle="collapse"
-          type="button"
-          id="sidebarCollapse"
-          class="btn "
-        >
-          <i id="toggleIcon" class="fa fa-angle-double-down"></i> Plus
-          d'actualite
-          <i
-            class="fa fa-
-
-        filter"
-          ></i>
-        </button>
       </div>
     </nav>
 
@@ -174,20 +158,6 @@
           class=" wrapper col-sm-9 d-flex justify-content-center "
         >
           <!-- Map here -->
-
-          <nav id="right-info" class="order-last">
-            <div class="sidebar-sticky">
-              <h3>RUBRIQUE ACTUALITE</h3>
-              <p>
-                Les autorités camerounaises ont réceptionné 30 tonnes de
-                matériels ce 26 mars 2020 à l’aéroport international de Yaoundé
-                Nsimalen. De l’oxygène pour la stratégie de riposte du Cameroun
-                contre le Covid-19. Un apport de l’homme d’affaires chinois Jack
-                Ma, , fondateur du Groupe de vente en ligne Alibaba. A (...)
-              </p>
-            </div>
-          </nav>
-
           <div id="mapdiv" class=""></div>
 
           <!-- Aside for infos -->
@@ -372,7 +342,9 @@
           }
         );
 
-        miniMapCtl = new L.Control.MiniMap(lyrOSM2).addTo(mymap);
+        miniMapCtl = new L.Control.MiniMap(lyrOSM2, {
+          toggleDisplay: true
+        }).addTo(mymap);
 
         objBasemaps = {
           "Open Street Maps": lyrOSM,
