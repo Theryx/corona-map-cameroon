@@ -4,42 +4,41 @@ body {
   height: 100%;
   width: 100%;
 }
+
 #navimg1 {
   position: absolute;
-  width: 991px;
-  height: 557px;
-  left: -202px;
-  top: -49px;
-  z-index: -1;
-
-  background: url(1584464765126png);
-
-  opacity: 0.43;
+  top:0px;
+  left:0px;
+  height:105px;
+  z-index:800
+  
 }
-
 #navimg2 {
-  size: 50px;
   position: absolute;
-  width: 991px;
-  height: 557px;
-  left: 200px;
-  top: -50px;
+  top:0px;
+  right:0px;
+  height:105px;
+  z-index:800;
+ } 
+#
+#custom-menu{
+	background-color:#ffffff;
+	opacity:0;
+	z-index:1000;
 
-  background: url(1584464765126png);
-
-  opacity: 0.43;
 }
 #navbartop {
+	position:relative;
   padding: none;
-  width: 100%;
-  height: 60px;
-  background: rgba(0, 0, 0, 0.61);
+  width: 1400px;
+  height: 105px;
+  background: rgba(0,0,0,0);
+  z-index:900
 }
 
 #navbartop > a {
   color: rgb(255, 255, 255);
 }
-
 /* Side Barright */
 #sidebarRight {
   width: 300px;
@@ -231,7 +230,7 @@ section
 {
 position: absolute;
 right: 0px;
-top: 70px;
+top: 110px;
 float: right;
 width: 280px;
 border: 1px solid black;
@@ -245,6 +244,6 @@ font-size: 0.9em;
 text-align: justify;
 vertical-align: top;
 z-index:2000;
-overflow-x:scroll
+overflow-y:scroll
 }
   
