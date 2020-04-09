@@ -1,7 +1,7 @@
 <?php
 
     $db = new PDO('pgsql:host=georesponse.postgres.database.azure.com;port=5432;dbname=georesponsedb;', 'postgres@georesponse', 'Geoadvantage2020');
-    $sql = $db->prepare("select nombre_total_de_cas, nombre_de_victimes,nombre_de_personnes_retablies from region where name = 'Centre'");
+    $sql = $db->prepare("select nombre_total_de_cas, nombre_de_victimes,nombre_de_personnes_retablies from region where name = 'Sud'");
     $sql->execute();
         
 

@@ -245,7 +245,22 @@
                         </div>
                         <div id="sud" class="collapse" data-parent="#accordion">
                             <div id="table_sud" class="card-body">
-                                Aucune informations disponibles pour le moment </div>
+                                Chargement des départements affectés ... </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#est" aria-expanded="false">
+                                EST:
+                            </a>
+                            <span id="C_est" class="case"> 00</span>
+                            <span id="V_est" class="victim"> 00</span>
+                            <span id="R_est" class="recover"> 00</span>
+                        </div>
+                        <div id="est" class="collapse" data-parent="#accordion">
+                            <div id="table_est" class="card-body">
+                                Chargement des départements affectés ... </div>
                         </div>
                     </div>
 
@@ -439,6 +454,26 @@
                 $("#R_sudouest").html(datas[2]);
             });
 
+            $.getJSON("php/sud_sum.php", function(data) {
+                var datas = [];
+                $.each(data, function(key, val) {
+                    datas.push(val);
+                });
+                $("#C_sud").html(datas[0]);
+                $("#V_sud").html(datas[1]);
+                $("#R_sud").html(datas[2]);
+            });
+
+            $.getJSON("php/est_sum.php", function(data) {
+                var datas = [];
+                $.each(data, function(key, val) {
+                    datas.push(val);
+                });
+                $("#C_est").html(datas[0]);
+                $("#V_est").html(datas[1]);
+                $("#R_est").html(datas[2]);
+            });
+
             $.getJSON("php/region_sum.php", function(data) {
                 var datas = [];
                 $.each(data, function(key, val) {
@@ -450,15 +485,6 @@
                 console.log(datas);
             });
 
-            $.getJSON("php/sud_sum.php", function(data) {
-                var datas = [];
-                $.each(data, function(key, val) {
-                    datas.push(val);
-                });
-                $("#C_sud").html(datas[0]);
-                $("#V_sud").html(datas[1]);
-                $("#R_sud").html(datas[2]);
-            });
 
 
             //Mise à jour tableau données departement
@@ -526,6 +552,20 @@
             };
 
             table_sud();
+
+            function table_est() {
+                $.ajax({
+                    url: 'php/table_est.php',
+                    type: 'POST',
+                    success: function(response) {
+                        $("#table_est").html(response)
+
+                    }
+                });
+            };
+
+            table_est();
+
 
 
             //cartographique
