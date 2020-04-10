@@ -819,11 +819,50 @@
                             mymap.removeLayer(lyrregion)
                         };
                         lyrregion = L.geoJSON(JSON.parse(response), {
-                            style: function(feature, layer) {
-                                if (feature.properties.nombre_total_de_cas >= 1) {
-                                    return Styleregion_case;
-                                } else {
-                                    return (Styleregion);
+                            style: function(feature) {
+                                switch (feature.properties.niveau_contamination) {
+                                    case 0:
+                                        return {
+                                            "color": "#265500",
+                                            "weight": 2,
+                                            "fillOpacity": 0.35,
+                                            "fillColor": "#265500"
+                                        };
+                                    case 1:
+                                        return {
+                                            "color": "#508104",
+                                            "weight": 2,
+                                            "fillOpacity": 0.35,
+                                            "fillColor": "#508104"
+                                        };
+                                    case 2:
+                                        return {
+                                            "color": "#9E8E01",
+                                            "weight": 2,
+                                            "fillOpacity": 0.35,
+                                            "fillColor": "#9E8E01"
+                                        };
+                                    case 3:
+                                        return {
+                                            "color": "#F3B800",
+                                            "weight": 2,
+                                            "fillOpacity": 0.35,
+                                            "fillColor": "#F3B800"
+                                        };
+                                    case 4:
+                                        return {
+                                            "color": "#DB8200",
+                                            "weight": 2,
+                                            "fillOpacity": 0.35,
+                                            "fillColor": "#DB8200"
+                                        };
+                                    case 5:
+                                        return {
+                                            "color": "#B64201",
+                                            "weight": 2,
+                                            "fillOpacity": 0.35,
+                                            "fillColor": "#B64201"
+                                        };
                                 }
                             },
                             onEachFeature: function(feature, layer) {
