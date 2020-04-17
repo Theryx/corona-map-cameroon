@@ -1,0 +1,12 @@
+body {
+  background-image: url("img/corona.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+.content {
+  padding: 20px;
+  padding-top: 60px;
+  background: rgba(14, 19, 15, 0.3);
+  height: 100vh;
+  overflow-y: auto;
+}
