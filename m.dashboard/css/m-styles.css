@@ -41,23 +41,32 @@ body {
   color: rgb(255, 255, 255);
 }
 
-nav > span {
+span {
   font-size: 12px;
   display: block;
 }
 
 .acceuil-content {
   position: relative;
-  top: 109px;
+  top: 86px;
 }
 .card {
+  min-height: 108px;
   background-color: #1e1e1e;
   color: rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .card-body {
-  padding: 0.67rem;
+  padding: 0.3rem;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+  margin-top: 5px;
+}
+.card-text:last-child {
+  padding-top: 12px;
 }
 
 .case-home {
@@ -97,16 +106,3 @@ nav > span {
   font-size: 60px;
   line-height: 41px;
 }
-
-/* .row-1 {
-  background-color: bisque;
-}
-.row-2 {
-  background-color: rgb(12, 190, 131);
-}
-.row-3 {
-  background-color: rgb(12, 30, 190);
-}
-.row-4 {
-  background-color: rgb(119, 12, 190);
-} */
