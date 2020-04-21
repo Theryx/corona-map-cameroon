@@ -7,43 +7,85 @@ body {
 
 #navimg1 {
   position: absolute;
-  top:0px;
-  left:0px;
-  height:105px;
-  z-index:800
-  
+  top: 0px;
+  left: 185px;
+  height: 86px;
+  z-index: -1;
+  opacity: 13;
+  filter: blur(3px);
 }
 #navimg2 {
   position: absolute;
-  top:0px;
-  right:0px;
-  height:105px;
-  z-index:800;
- } 
-#
-#custom-menu{
-	background-color:#ffffff;
-	opacity:0;
-	z-index:1000;
+  top: 23px;
+  right: 2px;
+  height: 105px;
+  z-index: -1;
+  opacity: 13;
+  filter: blur(3px);
+}
 
+#navimg3 {
+  position: absolute;
+  top: 58px;
+  left: 0px;
+  height: 105px;
+  z-index: -1;
+  opacity: 13;
+  filter: blur(3px);
+}
+#navimg4 {
+  position: absolute;
+  top: 0px;
+  right: 102px;
+  height: 55px;
+  z-index: -1;
+  opacity: 13;
+  filter: blur(3px);
 }
 #navbartop {
-	position:relative;
+  background-image: url("img/corona.png");
+  /* position: relative;
   padding: none;
   width: 1400px;
-  height: 105px;
-  background: rgba(0,0,0,0);
-  z-index:900
+  height: 105px; */
+  box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  background: rgb(255, 255, 255, 0.26);
+  z-index: 2;
+}
+.navbar {
+  display: flex;
+  justify-content: start;
 }
 
-#navbartop > a {
-  color: rgb(255, 255, 255);
+.nav-tittle {
+  display: flex;
+  flex-direction: column !important;
+  justify-content: start;
 }
+#navbartop > a {
+  color: rgb(115, 82, 82);
+  display: block;
+  margin: 0px !important;
+}
+
+.nav-tittle > span {
+  font-size: 18px;
+  display: block;
+}
+
+.app-tittle.textcentre {
+  padding: 0px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 25% 55% 20%;
+}
+
 /* Side Barright */
-#sidebarRight {
-  width: 300px;
+#sidebarleft {
   color: aliceblue;
-  position: sticky;
+
   margin: 0 0 0 auto;
   padding: 0;
   overflow-x: hidden;
@@ -51,7 +93,7 @@ body {
   background: #1e1e1e !important;
 }
 
-#sidebarRight,
+#sidebarleft,
 .sidebar-header {
   margin: 0 auto;
   padding: auto;
@@ -125,13 +167,6 @@ body {
 
 /* Side left */
 
-#right-side {
-  float: right;
-
-  width: auto;
-  height: 100vh;
-}
-
 .navbar.fixed-right {
   position: sticky;
   background: rgba(30, 30, 30, 0.7);
@@ -147,7 +182,18 @@ body {
   font-size: 20px;
   margin-top: 8px;
 }
+.custom-menu {
+  position: absolute;
+  right: 260px;
+  top: 253px;
+  background-color: #2b2b2b;
+  z-index: 6;
+}
 
+#toggleIcon {
+  color: #bbb;
+  rotate: ;
+}
 .collapse .show {
   background-color: #9c9c9c;
 }
@@ -212,38 +258,70 @@ li > a {
   line-height: 41px;
 }
 
-#mapdiv {
+/* #mapdiv {
   height: 92vh;
-}
+} */
 
-#mapdiv {
+/* #mapdiv {
   margin: 0;
   padding: 0;
-  /* height: 5vh; */
+  /* height: 5vh; 
+} */
+
+#right-info {
+  width: 100%;
+  z-index: 3;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #e5e5e5;
+
+  width: 100%;
+  border-radius: 0 0 8px 8px;
+  margin: 0px !important;
+}
+
+ul > li {
+  float: left;
+  width: 20vw;
+  border-right: 1px solid #bbb;
+}
+
+li a {
+  display: block;
+  color: #8c8c8c;
+  text-align: center;
+  font-size: 15px;
+  padding: 14px 10px;
+  text-decoration: none;
+}
+
+section {
+  /* position: absolute;
+  right: 0px;
+  top: 110px;
+  float: right; */
+
+  border: 1px solid black;
+  background-color: #1e1e1e;
+
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  color: white;
+  font-size: 0.9em;
+  text-align: justify;
+  vertical-align: top;
+  z-index: 2000;
+  overflow-y: auto;
 }
 .footer {
   align-content: center;
   color: #fff;
   background: #1e1e1e;
 }
-section
-{
-position: absolute;
-right: 0px;
-top: 110px;
-float: right;
-width: 280px;
-border: 1px solid black;
-background-color: #706b64;
-box-shadow: 0px 2px 5px #1c1a19;
-border-radius: 5px;
-padding: 10px;
-display:flex;
-color: white;
-font-size: 0.9em;
-text-align: justify;
-vertical-align: top;
-z-index:2000;
-overflow-y:scroll
-}
-  
