@@ -85,11 +85,7 @@
       }
 
       .titre {
-        color: #FFFF;
-      }
-
-      section {
-        height: 475px;
+        color: #ffff;
       }
     </style>
   </head>
@@ -99,230 +95,236 @@
     <img id="navimg2" src="img/corona.png" alt="" />
     <img id="navimg3" src="img/corona.png" alt="" />
     <img id="navimg4" src="img/corona.png" alt="" />
-
-    <!-- Navigation bar top(titlte)+ images-->
-    <nav class="navbar" id="navbartop">
-      <div class="nav-tittle">
-        <span>2019-ncov</span>
-        <a class="navbar-brand mx-auto" href="#">COVID-19 </a>
-        <span>Nouveau Corona virus</span>
-        <span>Geo-response</span>
-      </div>
-
-      <div id="react-target">
-        
-            <div class="justify-content-center">
-              <h2 class="">
-                <spam
-                  >Covid-19 : Evolution de la maladie sur le territoire
-                  camerounais</spam
-                >
-              </h2>
-              <h5 class="">
-                <spam
-                  >En vue de prévoir une meilleure réponse pour stopper la
-                  pandémie</spam
-                >
-              </h5>
-            </div>
+    <div class="my-container">
+      <!------------------- Navigation bar top(titlte)+ images----------------------->
+      <nav class="navbar" id="navbartop">
+        <div class="proj-tittle">
+          <span>2019-ncov</span>
+          <span>COVID-19 </span>
+          <span>Nouveau Corona virus</span>
+          <span>Geo-response</span>
+        </div>
+        <div class="tittle-wrapper">
+          <div class="nav-tittle">
+            <h2 class="">
+              <spam
+                >Covid-19 : Evolution de la maladie sur le territoire
+                camerounais</spam
+              >
+            </h2>
+            <h5 class="">
+              <spam
+                >En vue de prévoir une meilleure réponse pour stopper la
+                pandémie</spam
+              >
+            </h5>
           </div>
+        </div>
+      </nav>
+      <!----------x--------- Navigation bar top(titlte)+ images------------x----------->
 
-      
-    </nav>
-
-
-    
-    
-    
-      <div class="wrapper">
-
-        <!-- Side bar -->
-        <nav id="sidebarleft">
-          <div class="row sidebar-header">
-            <div class="division col-sm-4 threeboxes">
-              <div class="row tot-fig">
-                <div id="case" class="case col-sm-12 casetot">
-                  00
+      <!------------------------------------- Main-------------------------------------->
+      <main class="wrapper">
+        <!------------------------------------- Left Side bar --------------------------------->
+        <div class="right-side">
+          <nav id="sidebarleft">
+            <div class="row sidebar-header">
+              <div class="division col-sm-4 threeboxes">
+                <div class="row tot-fig">
+                  <div id="case" class="case col-sm-12 casetot">
+                    00
+                  </div>
+                  <div class="col-sm-12">
+                    <h6>Cas</h6>
+                  </div>
                 </div>
-                <div class="col-sm-12">
-                  <h6>Cas</h6>
+              </div>
+
+              <div class="division col-sm-4 threeboxes">
+                <div class="row tot-fig">
+                  <div id="victim" class="victim col-sm-12 victimtot">
+                    00
+                  </div>
+                  <div class="col-sm-12">
+                    <h6>Victimes</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="division col-sm-4 threeboxes">
+                <div class="row tot-fig">
+                  <div id="recover" class="recover col-sm-12 recovertot">
+                    00
+                  </div>
+                  <div class="col-sm-12">
+                    <h6>
+                      Rétablis
+                    </h6>
+                  </div>
                 </div>
               </div>
             </div>
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="card-link collapsed"
+                    data-toggle="collapse"
+                    href="#centre"
+                    aria-expanded="false"
+                  >
+                    CENTRE:
+                  </a>
+                  <span id="C_centre" class="case"> 00</span>
+                  <span id="V_centre" class="victim"> 00</span>
+                  <span id="R_centre" class="recover"> 00</span>
+                </div>
+                <div id="centre" class="collapse" data-parent="#accordion">
+                  <div id="table_centre" class="card-body">
+                    <ul class="nav flex-column sub-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#"
+                          >Chargement des départements affectés ...</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-            <div class="division col-sm-4 threeboxes">
-              <div class="row tot-fig">
-                <div id="victim" class="victim col-sm-12 victimtot">
-                  00
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="card-link collapsed"
+                    data-toggle="collapse"
+                    href="#littoral"
+                    aria-expanded="false"
+                  >
+                    LITTORAL:
+                  </a>
+                  <span id="C_littoral" class="case"> 00</span>
+                  <span id="V_littoral" class="victim"> 00</span>
+                  <span id="R_littoral" class="recover"> 00</span>
                 </div>
-                <div class="col-sm-12">
-                  <h6>Victimes</h6>
+                <div id="littoral" class="collapse" data-parent="#accordion">
+                  <div id="table_littoral" class="card-body">
+                    <ul class="nav flex-column sub-menu">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#"
+                          >Chargement des départements affectés ...</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="card-link collapsed"
+                    data-toggle="collapse"
+                    href="#ouest"
+                    aria-expanded="false"
+                  >
+                    OUEST:
+                  </a>
+                  <span id="C_ouest" class="case"> 00</span>
+                  <span id="V_ouest" class="victim"> 00</span>
+                  <span id="R_ouest" class="recover"> 00</span>
+                </div>
+                <div id="ouest" class="collapse" data-parent="#accordion">
+                  <div id="table_ouest" class="card-body">
+                    Chargement des départements affectés ...
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="card-link collapsed"
+                    data-toggle="collapse"
+                    href="#sudouest"
+                    aria-expanded="false"
+                  >
+                    SUD-OUEST:
+                  </a>
+                  <span id="C_sudouest" class="case"> 00</span>
+                  <span id="V_sudouest" class="victim"> 00</span>
+                  <span id="R_sudouest" class="recover"> 00</span>
+                </div>
+                <div id="sudouest" class="collapse" data-parent="#accordion">
+                  <div id="table_sudouest" class="card-body">
+                    Chargement des départements affectés ...
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="card-link collapsed"
+                    data-toggle="collapse"
+                    href="#sud"
+                    aria-expanded="false"
+                  >
+                    SUD:
+                  </a>
+                  <span id="C_sud" class="case"> 00</span>
+                  <span id="V_sud" class="victim"> 00</span>
+                  <span id="R_sud" class="recover"> 00</span>
+                </div>
+                <div id="sud" class="collapse" data-parent="#accordion">
+                  <div id="table_sud" class="card-body">
+                    Chargement des départements affectés ...
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <a
+                    class="card-link collapsed"
+                    data-toggle="collapse"
+                    href="#est"
+                    aria-expanded="false"
+                  >
+                    EST:
+                  </a>
+                  <span id="C_est" class="case"> 00</span>
+                  <span id="V_est" class="victim"> 00</span>
+                  <span id="R_est" class="recover"> 00</span>
+                </div>
+                <div id="est" class="collapse" data-parent="#accordion">
+                  <div id="table_est" class="card-body">
+                    Chargement des départements affectés ...
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="division col-sm-4 threeboxes">
-              <div class="row tot-fig">
-                <div id="recover" class="recover col-sm-12 recovertot">
-                  00
-                </div>
-                <div class="col-sm-12">
-                  <h6>
-                    Rétablis
-                  </h6>
-                </div>
-              </div>
-            </div>
+          </nav>
+          <div class="graph">
+            <h3>GRAPH HERE</h3>
           </div>
-          <div id="accordion">
-            <div class="card">
-              <div class="card-header">
-                <a
-                  class="card-link collapsed"
-                  data-toggle="collapse"
-                  href="#centre"
-                  aria-expanded="false"
-                >
-                  CENTRE:
-                </a>
-                <span id="C_centre" class="case"> 00</span>
-                <span id="V_centre" class="victim"> 00</span>
-                <span id="R_centre" class="recover"> 00</span>
-              </div>
-              <div id="centre" class="collapse" data-parent="#accordion">
-                <div id="table_centre" class="card-body">
-                  <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#"
-                        >Chargement des départements affectés ...</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+        </div>
+        <!----------------x--------------------- Left Side bar -----------------x---------------->
 
-            <div class="card">
-              <div class="card-header">
-                <a
-                  class="card-link collapsed"
-                  data-toggle="collapse"
-                  href="#littoral"
-                  aria-expanded="false"
-                >
-                  LITTORAL:
-                </a>
-                <span id="C_littoral" class="case"> 00</span>
-                <span id="V_littoral" class="victim"> 00</span>
-                <span id="R_littoral" class="recover"> 00</span>
-              </div>
-              <div id="littoral" class="collapse" data-parent="#accordion">
-                <div id="table_littoral" class="card-body">
-                  <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#"
-                        >Chargement des départements affectés ...</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <a
-                  class="card-link collapsed"
-                  data-toggle="collapse"
-                  href="#ouest"
-                  aria-expanded="false"
-                >
-                  OUEST:
-                </a>
-                <span id="C_ouest" class="case"> 00</span>
-                <span id="V_ouest" class="victim"> 00</span>
-                <span id="R_ouest" class="recover"> 00</span>
-              </div>
-              <div id="ouest" class="collapse" data-parent="#accordion">
-                <div id="table_ouest" class="card-body">
-                  Chargement des départements affectés ...
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <a
-                  class="card-link collapsed"
-                  data-toggle="collapse"
-                  href="#sudouest"
-                  aria-expanded="false"
-                >
-                  SUD-OUEST:
-                </a>
-                <span id="C_sudouest" class="case"> 00</span>
-                <span id="V_sudouest" class="victim"> 00</span>
-                <span id="R_sudouest" class="recover"> 00</span>
-              </div>
-              <div id="sudouest" class="collapse" data-parent="#accordion">
-                <div id="table_sudouest" class="card-body">
-                  Chargement des départements affectés ...
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <a
-                  class="card-link collapsed"
-                  data-toggle="collapse"
-                  href="#sud"
-                  aria-expanded="false"
-                >
-                  SUD:
-                </a>
-                <span id="C_sud" class="case"> 00</span>
-                <span id="V_sud" class="victim"> 00</span>
-                <span id="R_sud" class="recover"> 00</span>
-              </div>
-              <div id="sud" class="collapse" data-parent="#accordion">
-                <div id="table_sud" class="card-body">
-                  Chargement des départements affectés ...
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <a
-                  class="card-link collapsed"
-                  data-toggle="collapse"
-                  href="#est"
-                  aria-expanded="false"
-                >
-                  EST:
-                </a>
-                <span id="C_est" class="case"> 00</span>
-                <span id="V_est" class="victim"> 00</span>
-                <span id="R_est" class="recover"> 00</span>
-              </div>
-              <div id="est" class="collapse" data-parent="#accordion">
-                <div id="table_est" class="card-body">
-                  Chargement des départements affectés ...
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-
-        <!-- map -->
+        <!-------------------------------------- map ---------------------------------------------------->
         <div id="mapdiv"></div>
 
-        <nav id="sidebarRight" class="order-last">
-          <ul>
-             <li><a href="graphes.html">Graphes</a></li>
-            <li><a class="active" href="actu.html">Actu</a></li>
-          </ul>
-              <section>
+        <!-------------------------------------x------- map ---------------------------------x--------->
+        <!-------------------------- Right Bar -------------------------->
+        <nav id="sidebarRight">
+          <!-- <section class="Graph">
+              <div>
+                Lorem ipsum dolor sit amet
+                consectetur adipisicing elit.
+                Eveniet accusamus modi possimus
+                necessitatibus. Tempore quod
+                hic mollitia blanditiis eaque vitae?
+              </div>
+            </section>
+            <section class="actualite">
                   <h5 class=titre> RUBRIQUE ACTUALITE</h5>
                   <p>
                       <h5 class=titre>Covid-19</h5>
@@ -391,29 +393,42 @@
                           Public qui saura vous orienter dans votre processus de consultation et mise en hospitalisation si nécessaire ; et le cas échéant,
                           il saura quel protocole mettre en place pour encadrer le cas d’infection de votre domicile au centre hospitalier agrée...
                           Il est recommandé de ne pas sortir de chez vous de peur de contaminer d’autres personnes sur votre trajet.</P>
-              </section>
-              <div class="custom-menu">
-                <button
-                  data-target="#right-info"
-                  data-toggle="collapse"
-                  type="button"
-                  id="sidebarCollapse"
-                  class="btn"
-                >
-                  <i id="toggleIcon" class="fa fa-caret-up"></i>.
-                  <i class="fa fa- filter"></i>
-                </button>
-              </div>
-          
-      </nav>
+
+                          </section> -->
+        </nav>
+        <!------------x-------------- Right Bar -------------x------------->
+        <!-------------------------- icon menu -------------------------->
+        <div class="menu-containers">
+          <button class="icon-box">
+            <i id="searchicon" class="fa fa-plus fa-2x"></i>
+            <i id="searchicon" class="fa fa-search fa-2x"></i>
+          </button>
+        </div>
+
+        <!------------x-------------- icon menu -------------------------->
+      </main>
+      <!-------------------x------------------ Main-------------------x------------------->
+
+      <div class="footer d-flex justify-content-center">
+        <b> Copyright © Mars 2020</b>
       </div>
-    
-    <!-- Right Bar -->
-    
-    <div class="footer d-flex justify-content-center">
-      <b> Copyright © Mars 2020 </b>
     </div>
     <script>
+      // $(document).ready(function () {
+      //   $(".btn-toggle-close").click(function () {
+      //     $("#sidebarRight").hide(100);
+      //     $(".wrapper").css("grid-template-columns", "25% 75%");
+      //     $(".btn-toggle-open").css("display", "inline");
+      //     $("#toggleIcon").css("transform", "rotate(270deg)");
+      //   });
+      //   $(".btn-toggle-open").click(function () {
+      //     $("#sidebarRight").show(100);
+      //     $(".wrapper").css("grid-template-columns", "25% 55% 20%");
+      //     $(".btn-toggle-close").css("display", "inline");
+      //     $(".btn-toggle-open").css("display", "none");
+      //   });
+      // });
+
       var mymap;
       var lyrOSM;
       var miniMap;

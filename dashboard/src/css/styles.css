@@ -1,10 +1,34 @@
-/* <!-- Navigation bar top(titlte)--> */
-html,
-body {
-  height: 100%;
-  width: 100%;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
+html,
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.my-container {
+  height: 100vh;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Variable */
+:root {
+  /* theme colors */
+  --recover: #08725f;
+  --victim: #b50122;
+  --cases: #ea8c35;
+  --main-color: #0f0f0f;
+  --white: #ececec;
+  --midnight: #1e1e1e;
+}
+
+/* ....................Global classes..................... */
+
+/* <!------------- Navigation bar top(titlte)-------------------> */
 #navimg1 {
   position: absolute;
   top: 0px;
@@ -23,7 +47,6 @@ body {
   opacity: 13;
   filter: blur(3px);
 }
-
 #navimg3 {
   position: absolute;
   top: 58px;
@@ -44,20 +67,16 @@ body {
 }
 #navbartop {
   background-image: url("img/corona.png");
-  /* position: relative;
-  padding: none;
-  width: 1400px;
-  height: 105px; */
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.2);
   background: rgb(255, 255, 255, 0.26);
   z-index: 2;
 }
-.navbar {
+nav#navbartop {
   display: flex;
-  justify-content: start;
+  padding: 0 0.5rem;
+  align-items: initial;
 }
-
-.nav-tittle {
+.proj-tittle {
   display: flex;
   flex-direction: column !important;
   justify-content: start;
@@ -67,22 +86,39 @@ body {
   display: block;
   margin: 0px !important;
 }
-
-.nav-tittle > span {
+.tittle-wrapper {
+  margin-right: 115px;
+}
+.proj-tittle > span {
+  line-height: 100%;
   font-size: 18px;
   display: block;
 }
+.nav-tittle {
+  display: flex;
+  flex-direction: column;
 
+  align-items: center;
+}
 .app-tittle.textcentre {
   padding: 0px;
 }
 
 .wrapper {
+  height: 85vh !important;
   display: grid;
-  grid-template-columns: 25% 55% 20%;
+  grid-template-columns: 25% 55% 17% 4%;
 }
+/* <!------x------- Navigation bar top(titlte)--------x-----------> */
+/* -------------------Main content------------------------- */
 
-/* Side Barright */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--white);
+}
+/* -----------------------Side Bar right----------------------- */
 #sidebarleft {
   color: aliceblue;
 
@@ -90,16 +126,15 @@ body {
   padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #1e1e1e !important;
+  background: var(--midnight) !important;
+  height: 55vh;
 }
-
 #sidebarleft,
 .sidebar-header {
   margin: 0 auto;
   padding: auto;
   font-size: 1.2rem;
 }
-
 .sidebar-header {
   border-bottom: solid #c4c4c4 1px;
   padding-left: 15px;
@@ -110,42 +145,33 @@ body {
   display: inline-flex;
   align-items: flex-start;
 }
-
 .threeboxes {
   display: flex;
   padding-left: 20px !important;
   padding-right: 0px !important;
   border-right: solid white 1px;
 }
-
 .victim {
   position: relative;
   width: fi;
   margin: 0;
   padding: 0;
 }
-
 .row {
   margin-left: 0;
   margin-right: 0;
 }
-
 .card {
-  background-color: #1e1e1e !important;
-  border-bottom: solid #fff 1px;
+  background-color: var(--midnight) !important;
 }
-
 .card-header {
   border-bottom: solid #fff 1px !important;
   position: relative;
-  display: block;
-  padding: 0.75rem 1.25rem;
+  display: block !important;
+  padding: 2px 0.5rem !important;
   margin-bottom: -1px;
   background-color: #fff;
-
-  /* padding-right: 0; */
 }
-
 .card-link {
   margin-right: 5px;
   font-family: Lato;
@@ -158,12 +184,20 @@ body {
   color: #fff !important;
 }
 .card-body {
-  color: #1e1e1e;
+  color: var(--midnight);
   border: none;
   background: rgb(233, 229, 229);
 
   padding-right: 0;
 }
+/* -------x-------Side Bar right-------x-------- */
+
+/* --------------Graph--------------- */
+.graph {
+  background: var(--midnight);
+  height: 175px;
+}
+/* -------x-------Graph-------x-------- */
 
 /* Side left */
 
@@ -178,32 +212,47 @@ body {
   height: 100vh;
   align-items: flex-start;
 }
+
+#sidebarRight {
+  /* display: none; */
+  width: 100%;
+  right: 0px;
+}
+
 .awesome-marker i {
   font-size: 20px;
   margin-top: 8px;
 }
-.custom-menu {
-  position: absolute;
-  right: 260px;
-  top: 253px;
-  background-color: #2b2b2b;
-  z-index: 6;
+
+.menu-containers {
+  background-color: var(--midnight);
+}
+.icon-box {
+  background-color: var(--midnight);
+  width: 100%;
+  border: none;
 }
 
-#toggleIcon {
-  color: #bbb;
-  rotate: ;
+#searchicon {
+  width: 100%;
+  border: solid 1px var(--white);
+  color: var(--white);
 }
+
 .collapse .show {
   background-color: #9c9c9c;
 }
 
+a.active {
+  background-color: #ffc83c;
+}
+
 li > a {
-  color: #1e1e1e;
+  color: var(--midnight);
 }
 
 .casetot {
-  color: #ea8c35;
+  color: var(--cases);
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -212,7 +261,7 @@ li > a {
 }
 
 .victimtot {
-  color: #b50122;
+  color: var(--victim);
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -221,7 +270,7 @@ li > a {
 }
 
 .recovertot {
-  color: #08725f;
+  color: var(--recover);
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -231,7 +280,7 @@ li > a {
 
 .case {
   margin-right: 10px;
-  color: #ea8c35;
+  color: var(--cases);
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -241,7 +290,7 @@ li > a {
 
 .victim {
   margin-right: 10px;
-  color: #b50122;
+  color: var(--victim);
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -250,7 +299,7 @@ li > a {
 }
 
 .recover {
-  color: #08725f;
+  color: var(--recover);
   font-family: Roboto;
   font-style: normal;
   font-weight: 900;
@@ -308,7 +357,7 @@ section {
   float: right; */
 
   border: 1px solid black;
-  background-color: #1e1e1e;
+  background-color: var(--midnight);
 
   border-radius: 5px;
   padding: 10px;
@@ -320,8 +369,14 @@ section {
   z-index: 2000;
   overflow-y: auto;
 }
+
+.Graph {
+  display: none;
+}
 .footer {
   align-content: center;
   color: #fff;
-  background: #1e1e1e;
+  background: var(--midnight);
 }
+
+/* ---------x----------Main content------------x------------- */
